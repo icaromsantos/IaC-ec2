@@ -1,0 +1,28 @@
+
+-- Curso iniciando com o terraform
+--ansible
+ansible-playbook playbook.yml -u ubuntu --private-key iac-alura.pem -i hosts.yml
+
+-- iniciar o servidor python 
+- . venv/bin/activate
+- python manage.py runserver 0.0.0.0:8000
+
+
+
+
+-- Curso Separando ambientes
+-- Gerando nossa chave public e privada
+ssh-keygen
+
+-- Executando ansible DEV
+sudo ansible-playbook env/Dev/playbook.yml -i infra/hosts.yml -u ubuntu --private-key env/Dev/IaC-DEV
+
+-- Executando ansible Prod
+sudo ansible-playbook env/Prod/playbook.yml -i infra/hosts.yml -u ubuntu --private-key env/Prod/IaC-Prod
+
+-- Arquitetura Elástica
+-- Instalando locust para testar carga com interface web
+pip install locust
+
+--Iniciando o locust
+locust -f carga.py
